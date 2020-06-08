@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <title>Kachaw - Inicio</title>
+    <title>Kachaw - x</title>
   </head>
   <body>
   <div class="container">
@@ -55,49 +55,18 @@
 </nav> 
     </div>
 
-    <div id="meio" class="row">
-    <div class="col-4 my-5">
-    <a href="produto.php"><img src="http://placehold.it/250x320" class="d-block mx-auto"></a>
-      <p class="text-center">Nome do produto:</p>
-      <p class="text-center">Preço:</p>
-      <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
+    <div id="meio" class="row mt-5">
+    <div class="col-4">
+    <img src="http://placehold.it/300x400" class="d-block mx-auto">
     </div>
-    <div class="col-4 my-5">
-      <img src="http://placehold.it/250x320" class="d-block mx-auto">
-      <p class="text-center">Nome do produto:</p>
-      <p class="text-center">Preço:</p>
-      <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
+    <div class="col-4">
+    <h2>Nome:</h2>
+    <h3>Preço:</h3>
+    <p>bdd</p>
     </div>
-    <div class="col-4 my-5">
-      <img src="http://placehold.it/250x320" class="d-block mx-auto">
-      <p class="text-center">Nome do produto:</p>
-      <p class="text-center">Preço:</p>
-      <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
+    <div class="col-4">
+    <button type="button" class="btn btn-outline-success d-block mx-auto btn-lg mt-5">Comprar</button>
     </div>
-    <div class="col-4 my-5">
-      <img src="http://placehold.it/250x320" class="d-block mx-auto">
-      <p class="text-center">Nome do produto:</p>
-      <p class="text-center">Preço:</p>
-      <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
-    </div>
-    <div class="col-4 my-5">
-      <img src="http://placehold.it/250x320" class="d-block mx-auto">
-      <p class="text-center">Nome do produto:</p>
-      <p class="text-center">Preço:</p>
-      <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
-    </div>
-    <div class="col-4 my-5">
-      <img src="http://placehold.it/250x320" class="d-block mx-auto">
-      <p class="text-center">Nome do produto:</p>
-      <p class="text-center">Preço:</p>
-      <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
-    </div>
-
-    
-    
-
-
-    
     </div>
 
 
