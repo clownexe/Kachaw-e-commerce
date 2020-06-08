@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <title>Kachaw - Inicio</title>
+    <title>Kachaw - Conta</title>
 </head>
 
 <body>
@@ -24,7 +24,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item active">
                             <a class="nav-link" href="index.php">Inicio <span class="sr-only">(atual)</span></a>
                         </li>
@@ -53,50 +53,59 @@
                 </div>
             </nav>
         </div>
+        <div id="meio" class="row mt-5">
+            <div class="col-6">
+                <h1>Login</h1>
+                <form>
+                    <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">E-mail</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="inputEmail3">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Senha</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputPassword3">
+                        </div>
+                    </div>
 
-        <div id="meio" class="row">
-            <div class="col-4 my-5">
-                <a href="produto.php"><img src="http://placehold.it/250x320" class="d-block mx-auto"></a>
-                <p class="text-center">Nome do produto:</p>
-                <p class="text-center">Preço:</p>
-                <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary">Logar</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="col-4 my-5">
-                <img src="http://placehold.it/250x320" class="d-block mx-auto">
-                <p class="text-center">Nome do produto:</p>
-                <p class="text-center">Preço:</p>
-                <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
+            <div class="col-6 border-left">
+                <h1>Cadastrar</h1>
+                <form>
+                    <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">E-mail</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="inputEmail3">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Senha</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputPassword3">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Confirmar Senha</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputPassword3">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary">Logar</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="col-4 my-5">
-                <img src="http://placehold.it/250x320" class="d-block mx-auto">
-                <p class="text-center">Nome do produto:</p>
-                <p class="text-center">Preço:</p>
-                <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
-            </div>
-            <div class="col-4 my-5">
-                <img src="http://placehold.it/250x320" class="d-block mx-auto">
-                <p class="text-center">Nome do produto:</p>
-                <p class="text-center">Preço:</p>
-                <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
-            </div>
-            <div class="col-4 my-5">
-                <img src="http://placehold.it/250x320" class="d-block mx-auto">
-                <p class="text-center">Nome do produto:</p>
-                <p class="text-center">Preço:</p>
-                <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
-            </div>
-            <div class="col-4 my-5">
-                <img src="http://placehold.it/250x320" class="d-block mx-auto">
-                <p class="text-center">Nome do produto:</p>
-                <p class="text-center">Preço:</p>
-                <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
-            </div>
-
-
-
-
-
-
         </div>
 
 
