@@ -24,13 +24,13 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Inicio <span class="sr-only">(atual)</span></a>
+        <a class="nav-link" href="index.php">Inicio <span class="sr-only">(atual)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Minha Conta</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Carrinho</a>
+        <a class="nav-link" href="carrinho.php">Carrinho</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -65,7 +65,7 @@
     <p>bdd</p>
     </div>
     <div class="col-4">
-    <button type="button" class="btn btn-outline-success d-block mx-auto btn-lg mt-5">Comprar</button>
+    <button type="button" class="btn btn-outline-success d-block mx-auto btn-lg mt-5">Adicionar ao carrinho</button>
     </div>
     </div>
 
