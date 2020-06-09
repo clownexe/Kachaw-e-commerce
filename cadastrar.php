@@ -1,3 +1,11 @@
+<?php
+$action = "inserir";
+include_once 'model/clsCategoria.php';
+include_once 'model/clsProduto.php';
+include_once 'model/clsConexao.php';
+include_once 'DAO/clsCategoriaDAO.php';
+include_once 'DAO/clsProdutoDAO.php';
+?>
 <!doctype html>
 <html lang="en">
 
@@ -62,50 +70,45 @@
             </nav>
         </div>
 
-        <div id="meio" class="row">
-            <div class="col-4 my-5">
-                <a href="produto.php"><img src="http://placehold.it/250x320" class="d-block mx-auto"></a>
-                <p class="text-center">Nome do produto:</p>
-                <p class="text-center">Preço:</p>
-                <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
-            </div>
-            <div class="col-4 my-5">
-                <img src="http://placehold.it/250x320" class="d-block mx-auto">
-                <p class="text-center">Nome do produto:</p>
-                <p class="text-center">Preço:</p>
-                <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
-            </div>
-            <div class="col-4 my-5">
-                <img src="http://placehold.it/250x320" class="d-block mx-auto">
-                <p class="text-center">Nome do produto:</p>
-                <p class="text-center">Preço:</p>
-                <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
-            </div>
-            <div class="col-4 my-5">
-                <img src="http://placehold.it/250x320" class="d-block mx-auto">
-                <p class="text-center">Nome do produto:</p>
-                <p class="text-center">Preço:</p>
-                <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
-            </div>
-            <div class="col-4 my-5">
-                <img src="http://placehold.it/250x320" class="d-block mx-auto">
-                <p class="text-center">Nome do produto:</p>
-                <p class="text-center">Preço:</p>
-                <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
-            </div>
-            <div class="col-4 my-5">
-                <img src="http://placehold.it/250x320" class="d-block mx-auto">
-                <p class="text-center">Nome do produto:</p>
-                <p class="text-center">Preço:</p>
-                <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
-            </div>
+        <?php
+        if (isset($_SESSION['logado']) && $_SESSION['logado']) {
+
+
+        ?>
 
 
 
+            <form method="POST" action="controller/salvarProduto.php?<?php echo $action; ?>">
+                <label for="txtNome">Nome:</label>
+                <input type="text" name="txtNome" required />
+                <br>
+                <label for="txtPreco">Preço:</label>
+                <input type="text" name="txtPreco" required />
+                <br>
+                <label for="txtQuantidade">Quantidade:</label>
+                <input type="text" name="txtQuantidade" required />
+                <br>
+                <label for="categoria">Categoria:</label>
+            <select name="categoria">
+                <option value="0">Selecione a categoria...</option>
+                <?php
+                $lista = CategoriaDAO::getCategorias();
 
-
-
-        </div>
+                foreach ($lista as $cat) {
+                    echo '<option value="'   . $cat->id .  '">'  . $cat->nome . '</option>';
+                }
+                ?>
+            </select>
+                <br>
+                <label for="foto">Foto:</label>
+                <input type="file" name="foto" required />
+                <br>
+                <input type="submit" value="Salvar" />
+                <input type="reset" value="Limpar" />
+            </form>
+        <?php
+        }
+        ?>
 
 
     </div>

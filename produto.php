@@ -43,7 +43,14 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sobre</a>
+                            <?php
+                            if (session_status() != PHP_SESSION_ACTIVE) {
+                                session_start();
+                            }
+                            if (isset($_SESSION['logado']) && $_SESSION['logado']) {
+                                echo '<a class="nav-link" href="cadastrar.php">Cadastrar Produtos</a>';
+                            }
+                            ?>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">

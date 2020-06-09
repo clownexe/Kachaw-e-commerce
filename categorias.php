@@ -1,3 +1,6 @@
+<?php
+    $action = "inserir";
+?>
 <!doctype html>
 <html lang="en">
 
@@ -62,50 +65,39 @@
             </nav>
         </div>
 
-        <div id="meio" class="row">
-            <div class="col-4 my-5">
-                <a href="produto.php"><img src="http://placehold.it/250x320" class="d-block mx-auto"></a>
-                <p class="text-center">Nome do produto:</p>
-                <p class="text-center">Preço:</p>
-                <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
-            </div>
-            <div class="col-4 my-5">
-                <img src="http://placehold.it/250x320" class="d-block mx-auto">
-                <p class="text-center">Nome do produto:</p>
-                <p class="text-center">Preço:</p>
-                <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
-            </div>
-            <div class="col-4 my-5">
-                <img src="http://placehold.it/250x320" class="d-block mx-auto">
-                <p class="text-center">Nome do produto:</p>
-                <p class="text-center">Preço:</p>
-                <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
-            </div>
-            <div class="col-4 my-5">
-                <img src="http://placehold.it/250x320" class="d-block mx-auto">
-                <p class="text-center">Nome do produto:</p>
-                <p class="text-center">Preço:</p>
-                <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
-            </div>
-            <div class="col-4 my-5">
-                <img src="http://placehold.it/250x320" class="d-block mx-auto">
-                <p class="text-center">Nome do produto:</p>
-                <p class="text-center">Preço:</p>
-                <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
-            </div>
-            <div class="col-4 my-5">
-                <img src="http://placehold.it/250x320" class="d-block mx-auto">
-                <p class="text-center">Nome do produto:</p>
-                <p class="text-center">Preço:</p>
-                <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
-            </div>
+        <form method="POST" action="salvarCategoria.php?<?php echo $action; ?>">
+            <label for="txtNome">Nome:</label>
+            <input type="text" name="txtNome" required />
+            <br>
+            <input type="submit" value="Salvar" />
+            <input type="reset" value="Limpar" />
+        </form>
+
+        <table id="tbl_categorias">
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+            </tr>
+
+            <?php
+            include_once 'model/clsConexao.php';
+            $query = "SELECT * FROM categorias";
+            $result = Conexao::consultar($query);
+
+            while ($cat = mysqli_fetch_array($result)) {
+                echo '<tr>';
+                echo '    <td>' . $cat['id'] . '</td>';
+                echo '    <td>' . $cat['nome'] . '</td>';
+                echo '</tr>';
+            }
+            ?>
+
+        </table>
 
 
 
 
-
-
-        </div>
+    </div>
 
 
     </div>

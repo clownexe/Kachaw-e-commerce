@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_REQUEST['erroNoLogin'])) {
+    echo " <script> alert('Usuário ou senha inválidos');</script>";
+} else {
+}
+?>
 <!doctype html>
 <html lang="en">
 
@@ -43,7 +50,14 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sobre</a>
+                            <?php
+                            if (session_status() != PHP_SESSION_ACTIVE) {
+                                session_start();
+                            }
+                            if (isset($_SESSION['logado']) && $_SESSION['logado']) {
+                                echo '<a class="nav-link" href="cadastrar.php">Cadastrar Produtos</a>';
+                            }
+                            ?>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
@@ -55,57 +69,68 @@
         </div>
         <div id="meio" class="row mt-5">
             <div class="col-6">
-                <h1>Login</h1>
-                <form>
-                    <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">E-mail</label>
-                        <div class="col-sm-10">
-                            <input type="email" class="form-control" id="inputEmail3">
+                <?php
+                if (isset($_SESSION['logado']) && $_SESSION['logado']) {
+                    echo "Olá, Seja bem vindo.";
+                    ?>
+                    <br>
+                    <br>
+                    <br>
+                    <?php
+                    echo '<a href="logout.php"><button>Sair</button></a>';
+                } else {
+                ?>
+                    <h1>Login</h1>
+                    <form method="POST" action="logar.php">
+                        <label>Usuário:</label>
+                        <br>
+                        <input type="text" name="user" />
+                        <br>
+                        <label>Senha:</label>
+                        <br>
+                        <input type="password" name="senha" />
+                        <br>
+                        <br>
+                        <div class="form-group row">
+                            <input type="submit" value="Entrar" />
+                            <br>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputPassword3" class="col-sm-2 col-form-label">Senha</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputPassword3">
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary">Logar</button>
-                        </div>
-                    </div>
-                </form>
+                    </form>
             </div>
-            <div class="col-6 border-left">
-                <h1>Cadastrar</h1>
-                <form>
-                    <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">E-mail</label>
-                        <div class="col-sm-10">
-                            <input type="email" class="form-control" id="inputEmail3">
-                        </div>
+        <div class="col-6 border-left">
+            <h1>Cadastrar</h1>
+            <form>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">E-mail</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="inputEmail3">
                     </div>
-                    <div class="form-group row">
-                        <label for="inputPassword3" class="col-sm-2 col-form-label">Senha</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputPassword3">
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Senha</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="inputPassword3">
                     </div>
-                    <div class="form-group row">
-                        <label for="inputPassword3" class="col-sm-2 col-form-label">Confirmar Senha</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputPassword3">
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Confirmar Senha</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="inputPassword3">
                     </div>
+                </div>
 
-                    <div class="form-group row">
-                        <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary">Logar</button>
-                        </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
+        </div>
+        <?php
+
+                }
+        ?>
+        
         </div>
 
 
