@@ -1,9 +1,6 @@
 <?php
 require 'config.php';
-if(isset($_REQUEST['ordem']))
-$ordemProd = $_REQUEST['ordem'];
-else
-$ordemProd = NULL;
+$action = "inserir";
 ?>
 <!doctype html>
 <html lang="en">
@@ -16,7 +13,7 @@ $ordemProd = NULL;
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <title>Kachaw - Inicio</title>
+    <title>Kachaw - Categorias</title>
 </head>
 
 <body>
@@ -24,23 +21,31 @@ $ordemProd = NULL;
     include_once "menu.php";
     ?>
 
+    <form method="POST" action="salvarCategoria.php?<?php echo $action; ?>">
+        <label for="txtNome">Nome:</label>
+        <input type="text" name="txtNome" required />
+        <br>
+        <input type="submit" value="Salvar" />
+        <input type="reset" value="Limpar" />
+    </form>
 
-    <div id="meio" class="row">
+    <table id="tbl_categorias">
+        <tr>
+            <th>Código</th>
+            <th>Nome</th>
+        </tr>
+
         <?php
-        $result = ProdutoDAO::getProdutos($ordemProd);
-        foreach ($result as $prod) {
-        ?>
-            <div class="col-4 my-5">
-                <a href="produto.php?id=<?= $prod->id; ?>"><img src="<?= $prod->foto; ?>" class="d-block mx-auto img-thumbnail"></a>
-                <p class="text-center"><?= $prod->nome; ?></p>
-                <p class="text-center"> R$:<?= $prod->valor; ?></p>
-                <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
-            </div>
-        <?php
+        $result = CategoriaDAO::getCategorias();
+        foreach ($result as $cat) {
+            echo '<tr>';
+            echo '    <td>' . $cat->id . '</td>';
+            echo '    <td>' . $cat->nome . '</td>';
+            echo '</tr>';
         }
         ?>
 
-
+    </table>
 
 
 
