@@ -1,5 +1,5 @@
 <?php
-    include_once 'model/clsConexao.php';
+require 'config.php';
     //$usuario_cadastrado = "admin@admin.com";
     //$senha_cadastrada = "123";
     

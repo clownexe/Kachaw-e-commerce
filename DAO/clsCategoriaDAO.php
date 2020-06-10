@@ -1,5 +1,4 @@
 <?php
-
 class CategoriaDAO{
 
     public static function getCategorias(){

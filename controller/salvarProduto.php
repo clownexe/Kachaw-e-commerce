@@ -1,10 +1,5 @@
 <?php
 
-include_once "../model/clsCategoria.php";
-include_once "../model/clsProduto.php";
-include_once "../dao/clsProdutoDAO.php";
-include_once "../model/clsConexao.php";
-
 function salvarFoto(){
     $nome_arquivo = "";
 

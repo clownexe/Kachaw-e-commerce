@@ -1,5 +1,6 @@
 <?php
-    $action = "inserir";
+require 'config.php';
+$action = "inserir";
 ?>
 <!doctype html>
 <html lang="en">
@@ -12,87 +13,39 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <title>Kachaw - Inicio</title>
+    <title>Kachaw - Categorias</title>
 </head>
 
 <body>
-    <div class="container">
-        <div id="topo">
-            <div class="text-center">
-                <img src="imagens/logo.png">
-            </div>
+    <?php
+    include_once "menu.php";
+    ?>
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="index.php">Inicio <span class="sr-only">(atual)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="minhaconta.php">Minha Conta</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="carrinho.php">Carrinho</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Categorias
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <?php
-                            if (session_status() != PHP_SESSION_ACTIVE) {
-                                session_start();
-                            }
-                            if (isset($_SESSION['logado']) && $_SESSION['logado']) {
-                                echo '<a class="nav-link" href="cadastrar.php">Cadastrar Produtos</a>';
-                                echo '<a class="nav-link" href="categorias.php">Cadastrar Categorias</a>';
-                            }
-                            ?>
-                        </li>
-                    </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Digite o nome..." aria-label="Pesquisar">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-                    </form>
-                </div>
-            </nav>
-        </div>
+    <form method="POST" action="salvarCategoria.php?<?php echo $action; ?>">
+        <label for="txtNome">Nome:</label>
+        <input type="text" name="txtNome" required />
+        <br>
+        <input type="submit" value="Salvar" />
+        <input type="reset" value="Limpar" />
+    </form>
 
-        <form method="POST" action="salvarCategoria.php?<?php echo $action; ?>">
-            <label for="txtNome">Nome:</label>
-            <input type="text" name="txtNome" required />
-            <br>
-            <input type="submit" value="Salvar" />
-            <input type="reset" value="Limpar" />
-        </form>
+    <table id="tbl_categorias">
+        <tr>
+            <th>Código</th>
+            <th>Nome</th>
+        </tr>
 
-        <table id="tbl_categorias">
-            <tr>
-                <th>Código</th>
-                <th>Nome</th>
-            </tr>
+        <?php
+        $result = CategoriaDAO::getCategorias();
+        foreach ($result as $cat) {
+            echo '<tr>';
+            echo '    <td>' . $cat->id . '</td>';
+            echo '    <td>' . $cat->nome . '</td>';
+            echo '</tr>';
+        }
+        ?>
 
-            <?php
-            include_once 'model/clsConexao.php';
-            $query = "SELECT * FROM categorias";
-            $result = Conexao::consultar($query);
-
-            while ($cat = mysqli_fetch_array($result)) {
-                echo '<tr>';
-                echo '    <td>' . $cat['id'] . '</td>';
-                echo '    <td>' . $cat['nome'] . '</td>';
-                echo '</tr>';
-            }
-            ?>
-
-        </table>
+    </table>
 
 
 
