@@ -34,7 +34,7 @@ $ordemProd = NULL;
                 <a href="produto.php?id=<?= $prod->id; ?>"><img src="<?= $prod->foto; ?>" class="d-block mx-auto img-thumbnail"></a>
                 <p class="text-center"><?= $prod->nome; ?></p>
                 <p class="text-center"> R$:<?= $prod->valor; ?></p>
-                <button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button>
+                <a href="produto.php?id=<?= $prod->id; ?>"><button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button></a>
             </div>
         <?php
         }

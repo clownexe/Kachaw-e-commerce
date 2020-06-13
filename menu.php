@@ -17,7 +17,7 @@
                             <a class="nav-link" href="minhaconta.php">Minha Conta</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="carrinho.php">Carrinho</a>
+                            <a class="nav-link" href="meucarrinho.php">Carrinho</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

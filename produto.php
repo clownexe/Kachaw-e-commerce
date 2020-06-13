@@ -39,7 +39,8 @@ if($produto == NULL){
                 <p>Descrição: <?= $produto[0]->descricao;?></p>
             </div>
             <div class="col-4">
-                <button type="button" class="btn btn-outline-success d-block mx-auto btn-lg mt-5">Adicionar ao carrinho</button>
+                <a href='controller/carrinho.php?adicionar&idProd=<?= $produto[0]->id ?>'><button type="button" class="btn btn-outline-success d-block mx-auto btn-lg mt-5">Adicionar ao carrinho</button></a>
+                <?php echo '    <td><a href="controller/carrinho.php?adicionar&idProduto='.$produto[0]->id.' ">Adicionar ao Carrinho</a></td>'; ?>
             </div>
         </div>
 

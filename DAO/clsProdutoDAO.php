@@ -6,9 +6,9 @@ class ProdutoDAO
     public static function inserir($produto)
     {
         $query = "INSERT INTO produtos 
-                (nome, preco, quantidade, codCategoria, foto) VALUES (
+                (nome, valor, quantidade, codCategoria, foto) VALUES (
                 '" . $produto->nome . "' ,
-                 " . $produto->preco . "  ,
+                 " . $produto->valor . "  ,
                  " . $produto->quantidade . " ,
                  " . $produto->categoria->id . " , 
                 '" . $produto->foto . "'   )";
@@ -19,7 +19,7 @@ class ProdutoDAO
     {
         $query = "UPDATE produtos SET
                 nome = '" . $produto->nome . "' ,
-                preco = " . $produto->preco . "  ,
+                valor = " . $produto->valor . "  ,
                 quantidade = " . $produto->quantidade . " ,
                 codCategoria = " . $produto->categoria->id . " ,
                 foto = '" . $produto->foto . "' 
@@ -102,5 +102,29 @@ class ProdutoDAO
             $lista->append($prod);
             return $lista;
         }
+    }
+    public static function getProdutoById($idProduto){
+        $query = "SELECT p.id, p.nome, p.valor, p.quantidade, p.foto, 
+        c.id AS codCat, c.nome AS nomeCat
+   FROM produtos p 
+   INNER JOIN categorias c ON c.id = p.idCat 
+   WHERE p.id = " . $idProduto . "
+   ORDER BY p.nome ";
+        $result = Conexao::consultar($query);
+
+        list($cod, $nome, $valor, $qtd, $foto, $codCat, $nomeCat) = mysqli_fetch_row($result) ;
+        $cat = new Categoria();
+        $cat->id = $codCat;
+        $cat->nome = $nomeCat;
+
+        $prod = new Produto();
+        $prod->id = $cod;
+        $prod->nome = $nome;
+        $prod->valor = $valor;
+        $prod->quantidade = $qtd;
+        $prod->categoria = $cat;
+        $prod->foto = $foto;
+
+        return $prod;
     }
 }
