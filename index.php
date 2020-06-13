@@ -34,17 +34,11 @@ $ordemProd = NULL;
                 <a href="produto.php?id=<?= $prod->id; ?>"><img src="<?= $prod->foto; ?>" class="d-block mx-auto img-thumbnail"></a>
                 <p class="text-center"><?= $prod->nome; ?></p>
                 <p class="text-center"> R$:<?= $prod->valor; ?></p>
-                <a href="produto.php?id=<?= $prod->id; ?>"><button type="button" class="btn btn-outline-success d-block mx-auto">Comprar</button></a>
+                <a href='controller/carrinho.php?adicionar&idProduto=<?= $prod->id ?>'><button type="button" class="btn btn-outline-success d-block mx-auto btn-lg mt-5">Comprar</button></a>
             </div>
         <?php
         }
         ?>
-
-
-
-
-
-
     </div>
 
 

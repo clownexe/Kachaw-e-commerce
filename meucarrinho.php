@@ -35,7 +35,6 @@ require 'config.php';
             echo '      <th>Quantidade</th>';
             echo '      <th>Preço</th>';
             echo '      <th>Subtotal</th>';
-            echo '      <th>Remover</th>';
             echo '  </tr>';
             $total = 0;
 
@@ -61,8 +60,7 @@ require 'config.php';
                     
                 echo '      <td>R$ '.$subtotal.'</td>';
 
-                echo '      <td><a href="controller/carrinho.php?excluir&idProduto='
-                            .$produto->id.'" ><button>Excluir</button></a></td>';
+
                 echo ' </tr>';
             }
             echo '  <tr>';
